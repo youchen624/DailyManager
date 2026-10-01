@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/web/icon.png">
+    <title>Simple Data Viewer</title>
+    <meta property="og:title" content="Daily Manager">
+    <meta property="og:description" content="每日 管理">
+    <meta property="og:image" content="assets/web/icon.png">
+    <link rel="stylesheet" href="assets/web/style.css">
+    <script src="/assets/web/scripts.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#"><img src="assets/web/icon.png" alt="Logo"></a>
+        </div>
+        <div class="title">
+            <h1>Daily Manager</h1>
+        </div>
+        <button id="login" onclick="loginProfile(true)">
+            <p id="login-p" class="isLogin">登入</p>
+            <img id="login-img" src="/api/proxy-image" alt="icon">
+        </button>
+        <div class="disable" id="account-profile">
+            <ul>
+                <li>
+                    <div id="profile-icon">
+                        <img src="/api/proxy-image" alt="icon">
+                        <p id="profile-name">UserName</p>
+                    </div>
+                </li>
+                <li>
+                    <button id="profile-account">帳號</button>
+                </li>
+                <li>
+                    <button id="profile-setting">設定</button>
+                </li>
+                <li>
+                    <button id="profile-logout" onclick="logout()">登出</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section>
+        <h2>Date</h2>
+        <input type="date" id="datePicker">
+    </section>
+    <section class="center">
+        <h2>Daily Moods</h2>
+        <div id="daily-mood">
+            <button data-mood="common">
+                <!-- <p>😐</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="普通">
+            </button>
+            <button data-mood="happy">
+                <!-- <p>😄</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="喜">
+            </button>
+            <button data-mood="angry">
+                <!-- <p>😡</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="怒">
+            </button>
+            <button data-mood="sorrow">
+                <!-- <p>😢</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="哀">
+            </button>
+            <button data-mood="fear">
+                <!-- <p>😨</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="懼">
+            </button>
+            <button data-mood="love">
+                <!-- <p>🥰</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="愛">
+            </button>
+            <button data-mood="hate">
+                <!-- <p>😒</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="惡">
+            </button>
+            <button data-mood="desire">
+                <!-- <p>🤤</p> -->
+                <img src="/assets/web/png/moods/temp.png" alt="欲">
+            </button>
+        </div>
+    </section>
+    <section>
+        <h2>Daily Title</h2>
+        <input type="text" id="dailyTitle">
+    </section>
+    <section>
+        <h2>Daily Note</h2>
+        <input type="text" id="dailyNote">
+    </section>
+</body>
+
+</html>

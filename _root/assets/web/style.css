@@ -1,0 +1,210 @@
+.disable {
+    display: none;
+}
+
+.center {
+    align-items: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #0c72df;
+    padding: 8px 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* header button#login {} */
+.logo a img {
+    height: 40px;
+}
+
+.title h1 {
+    text-align: center;
+    flex-grow: 1;
+    font-size: 1.5rem;
+}
+
+#login {
+    background: none;
+    padding: 0;
+    /* border-radius: 4px; */
+    margin: 0;
+    border: none;
+    position: relative;
+    outline: none;
+}
+
+#login-p {
+    cursor: pointer;
+    display: inline;
+    /* padding: 10px 36px; */
+    padding: 1vh 3vw;
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+    border: #000000 solid 2px;
+    background-color: #f1f89b;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#login-p:hover {
+    background-color: #b0b671;
+}
+
+#login-img {
+    border: rgba(255, 255, 255, 0) solid 3px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: none;
+    width: 50px;
+    height: auto;
+}
+
+#login-img:hover {
+    border: rgb(255, 255, 255, 0.2) solid 3px;
+}
+
+button.isLogin #login-p {
+    display: none;
+}
+
+button.isLogin #login-img {
+    display: inline;
+}
+
+#account-profile {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 8px;
+    width: 200px;
+}
+
+#account-profile ul {
+    padding: 0;
+}
+
+#account-profile li {
+    padding: 6px 20px;
+    list-style-type: none;
+}
+
+#account-profile li button {
+    background: #3c90ea;
+    border-radius: 4px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+#account-profile li button#profile-logout {
+    background: #ea3c3c;
+}
+
+#account-profile li button:active {
+    transform: scale(0.95);
+    background: #0056b3;
+}
+
+#account-profile.show {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#profile-icon {
+    text-align: center;
+}
+
+#profile-icon img {
+    max-width: 80px;
+    max-height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+section {
+    display: grid;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+div#daily-mood {
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    gap: 2vw;
+}
+
+div#daily-mood button {
+    flex-shrink: 0;
+    flex: 0 1 auto;
+    display: flex;
+    background: none;
+    padding: 0;
+    /* border-radius: 4px; */
+    margin: 0;
+    border: none;
+    /* position: relative; */
+    outline: none;
+    width: 10vw;
+    /* height: 10vh; */
+}
+
+div#daily-mood button p {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div#daily-mood button img {
+    display: inline;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+div#daily-mood button.selected {
+    transform: scale(1.3);
+    border: 2px solid blue;
+    transform-origin: center;
+}
+
+
+
+
+
+
+
+body {
+    margin-top: 80px;
+}

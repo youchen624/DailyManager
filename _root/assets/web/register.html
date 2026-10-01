@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/web/icon.png">
+    <title>註冊帳號</title>
+    <meta property="og:title" content="Daily Manager">
+    <meta property="og:description" content="每日 管理">
+    <meta property="og:image" content="assets/web/icon.png">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+
+        form#registerForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        form#registerForm input {
+            padding: 2px 4px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+            /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
+        }
+
+        #registerForm div {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <form id="registerForm">
+            <h2>註冊</h2>
+            <input type="text" placeholder="啟動碼" id="activeCode" required>
+            <input type="text" placeholder="帳號" id="account" autocomplete="username" required>
+            <input type="password" placeholder="密碼" id="password" autocomplete="current-password" required>
+            <div>
+                <button type="button" id="login" onclick="">登入</button>
+                <button type="submit" id="submit" onclick="">註冊</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        async function register(event) {
+            event.preventDefault();
+            const activeCode = document.getElementById('activeCode').value;
+            const account = document.getElementById('account').value;
+            const password = document.getElementById('password').value;
+            fetch(`/api/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ activeCode, account, password }),
+                credentials: 'include' // cookies
+            }).then((res) => {
+                res.json().then((data) => {
+                    // 註冊成功 登入
+                    alert(data.message);
+                    if (data.isLogin) window.location.href = '/';
+                });
+            });
+        }
+        async function login() {
+            window.location.href = '/login';
+        }
+        document.getElementById("login").addEventListener("click", login);
+        document.getElementById('registerForm').addEventListener('submit', register);
+    </script>
+</body>
